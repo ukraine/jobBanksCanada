@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+   <head>
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+
+      <style>
+
+      body {font-size: 90%;}
+    
+      dl {
+        padding: 0.5em;
+      }
+      dt {
+        float: left;
+        clear: left;
+        width: 20%;
+        text-align: right;
+        font-weight: bold;
+      }
+      dd {
+        margin: 0 0 0 23%;
+        padding: 0 0 0.5em 0;
+      }
+
+      .actions {
+         margin: 5px;
+      }
+
+      dd:last-child {
+         line-height: 1.8em;
+      }
+
+      #actions {
+         padding: 13px 0 0 14px;
+      }
+
+      h1 + p {margin-top: -12px;
+  font-weight: 400 !important;
+  font-size: 90%;}
+      
+      #details {margin: 0 0 15px;}
+    
+      #detailsToCopyHidden1, #saveJobButton, #copyJobButton {display: none;}
+      </style>
+         
+
+   </head>
+<body>
+   <h1>CanaDreeemJob</h1>
+   <p>A grabber retrieves the Canadian job listings into a Google Spreadsheets for easy applying and tracking</p>
+   <hr>
+   <div id="actions">
+   <button id="saveJobButton">Save</button>
+   <button id="copyJobButton">Copy</button>
+   <span id="statusMessage"></span>
+   </div>
+   <div id="details"></div>
+  <div id="detailsToCopyHidden"></div>
+  <script src="popup.js"></script>
+
+</body>
+</html>
