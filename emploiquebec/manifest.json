@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "QEE-YEAH Saves a Job from Quebec Emploi to Google Spreadsheets",
+  "description": "QEE-YEAH allows you to keep and track all interesting job posting from Quebec Emploi in your Google Spreadsheets",
+  "version": "1.0",
+  "permissions": ["activeTab"],
+  "icons": {
+   "16": "icon-16.png",
+   "64": "icon-64.png",
+   "128": "icon-128.png"
+   },
+  "browser_action": {
+    "default_popup": "popup.html"
+  }
+}
