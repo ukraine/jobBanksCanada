@@ -1,10 +1,3 @@
-
-function sanitizeContent(content) {
-   var tempDiv = document.createElement('div');
-   tempDiv.innerHTML = content;
-   return tempDiv.textContent || tempDiv.innerText || '';
- }
-
 var titleElement = document.querySelector('title');
 var title = titleElement !== null ? titleElement.innerText : "0";
 
@@ -22,6 +15,14 @@ fetch(url)
   .then(jsonData => {
     // Display the received JSON data
     console.log("Received JSON Data:", jsonData);
+
+    // Extract data from jsonData
+    var title = jsonData.title;
+    var personName = jsonData.personName;
+    var personEmail = jsonData.personEmail;
+
+    var addressContent = "";
+    var employerContent = "";
 
   // Define an array of label names you want to extract
 const labelsToExtract = [
@@ -48,20 +49,26 @@ const labelsToExtract = [
  jsonData.body.forEach(item => {
    if (labelsToExtract.includes(item.label)) {
      extractedContent[item.label] = item.content;
-    }
+ 
+     // You can also create variables within the loop for immediate use
+     if (item.label === "Adresse du lieu de travail") {
+       var addressContent = item.content;
+       console.log("Address:", addressContent);
+     } else if (item.label === "Employeur") {
+       var employerContent = item.content;
+       console.log("Employer:", employerContent);
+     }
+     // Add more conditions for other labels here
+   }
  });
-
- // Iterate through the extractedContent and sanitize the values
-for (const label in extractedContent) {
-   extractedContent[label] = sanitizeContent(extractedContent[label]);
-} 
  
  // Now you can access the extracted content using the label as the key in the extractedContent object
-console.log("Extracted Content:", extractedContent);
+ console.log("Extracted Content:", extractedContent);
  
   })
   .catch(error => {
     console.error("Error:", error);
   });
 
-  var output = extractedContent
+
+ 
