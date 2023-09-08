@@ -17,6 +17,7 @@
 /*
 Save and apply later
 Generate me a checklist to apply for this job
+When visiting not allowed job domain, allow user to request support for it.
 
 // + "Hours per week" should be removed
 // Data conversion - similar format
