@@ -15,7 +15,7 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
    statusMessageDiv.style.display = 'inline';
 
    if (url.href.includes(sourceUrlTemplate)) statusMessageDiv.innerText = 'Analyzing job posting...';
-   else statusMessageDiv.innerHTML = `I\'m sorry, ${primaryDomain} is not yet supported. Please <a target='_blank' href='https://yatsiv.com/f/${pluginName}?other=${primaryDomain}'>click here</a> if you want us to support it`;
+   else statusMessageDiv.innerHTML = `I\'m sorry, this page is not yet supported. Please <a target='_blank' href='https://yatsiv.com/f/${pluginName}?other=${primaryDomain}'>click here</a> if you want us to enable it`;
 
  });
  
