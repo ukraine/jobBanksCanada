@@ -1,62 +1,89 @@
 <!DOCTYPE html>
-<html>
-   <head>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
 
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 
       <style>
 
-      body {font-size: 90%;}
-    
-      dl {
-        padding: 0.5em;
-      }
-      dt {
-        float: left;
-        clear: left;
-        width: 20%;
-        text-align: right;
-        font-weight: bold;
-      }
-      dd {
-        margin: 0 0 0 23%;
-        padding: 0 0 0.5em 0;
-      }
+body {
+    font-size: 90%;
+     margin-top: 5px;
+     background: #f8f8f8;
+     color: #222222;
+}
+/* #4d4c4c;
+ */
+ dl {
+     padding: 0.5em;
+}
+ dt {
+     float: left;
+     clear: left;
+     width: 20%;
+     text-align: right;
+     font-weight: bold;
+}
+ dd {
+     margin: 0 0 0 21.5%;
+     padding: 0 0 0.5em 0;
+}
+ dd:last-child {
+     line-height: 1.8em;
+}
+ #actions {
+     margin: 23px 77px -10px;
+}
+ h1 + p {
+    margin-top: -12px;
+     font-weight: 400 !important;
+     font-size: 90%;
+}
+ .detailsCard {
+    background-color: #fff;
+     padding: 8px 0px 0px;
+     border-radius: 8px;
+     margin-top: 16px;
+     box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.19);
+}
+ #detailsToCopyHidden1, #saveJobButton, #copyJobButton {
+    display: none;
+}
+ header {
+     background-color:#f8f8f8;
+     color:#212121;
+}
+ header h1 {
+    color: #212121;
+     font-weight: 800;
+     margin-top: 0px !important
+}
 
-      .actions {
-         margin: 5px;
-      }
-
-      dd:last-child {
-         line-height: 1.8em;
-      }
-
-      #actions {
-         padding: 13px 0 0 14px;
-      }
-
-      h1 + p {margin-top: -12px;
-  font-weight: 400 !important;
-  font-size: 90%;}
-      
-      #details {margin: 0 0 15px;}
-    
-      #detailsToCopyHidden1, #saveJobButton, #copyJobButton {display: none;}
       </style>
+      
          
 
    </head>
 <body>
+   <header>
    <h1>CanaDreeemJob</h1>
-   <p>A grabber retrieves the Canadian job listings into a Google Spreadsheets for easy applying and tracking</p>
-   <hr>
-   <div id="actions">
-   <button id="saveJobButton">Save</button>
-   <button id="copyJobButton">Copy</button>
-   <span id="statusMessage"></span>
+   <p>A grabber saves the Canadian job listings into a Google Spreadsheets for easy applying and tracking</p>
+   </header>
+   
+
+   <div id='detailsCard'>
+
+      <div id="actions">
+         <button id="saveJobButton">Save</button>
+         <button id="copyJobButton">Copy</button>
+         <span id="statusMessage"></span>
+      </div>
+
+      <div id="details"></div>
+
    </div>
-   <div id="details"></div>
-  <div id="detailsToCopyHidden"></div>
+  
+   <div id="detailsToCopyHidden"></div>
   <script src="popup.js"></script>
 
 </body>

@@ -3,7 +3,7 @@
   "name": "CanaDreeemJob - grab and track jobs in Spreadsheets",
   "description": "A grabber retrieves the Canadian job listings into a Google Spreadsheets for easy applying and tracking",
   "version": "1.0",
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "scripting", "tabs"],
   "icons": {
    "16": "icon-16.png",
    "64": "icon-64.png",

@@ -1,15 +1,30 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+const statusMessageDiv = document.getElementById('statusMessage');
+
 // Get the current tab
 browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
    // Inject the script into the current tab
    browser.tabs.executeScript(tabs[0].id, {file: "content.js"});
-   document.getElementById("details").innerText = "Analyzing job posting...";
+
+   const url = new URL(tabs[0].url);
+   const primaryDomain = url.hostname;
+   const sourceUrlTemplate = "jobsearch/jobposting/";
+   const pluginName = 'CanaDreemJob'
+
+   statusMessageDiv.style.display = 'inline';
+
+   if (url.href.includes(sourceUrlTemplate)) statusMessageDiv.innerText = 'Analyzing job posting...';
+   else statusMessageDiv.innerHTML = `I\'m sorry, ${primaryDomain} is not yet supported. Please <a target='_blank' href='https://yatsiv.com/f/${pluginName}?other=${primaryDomain}'>click here</a> if you want us to support it`;
+
  });
  
  // Listen for messages from the content script
  browser.runtime.onMessage.addListener(function(message) {
    // Display the details in the popup
+
+   statusMessageDiv.style.display = 'none';
+   
    const extractedData = JSON.parse(message);
 
    const keysToExtractForuOutput = {
@@ -148,8 +163,11 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
  
    dlHtml += '</dl>'; // Close the description list (dl)
  
+   document.getElementById('detailsCard').classList.add('detailsCard');
+
    // Get the div with the 'details' id and set its innerHTML
    const detailsDiv = document.getElementById('details');
+   
    detailsDiv.innerHTML = dlHtml;
 
    const detailsHidden = document.getElementById('detailsToCopyHidden')
@@ -182,8 +200,8 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
    document.body.removeChild(textarea);
  
    // Display a message indicating that the details have been copied
-   document.getElementById('statusMessage').style.display = 'inline';
-   document.getElementById('statusMessage').innerText = 'Copied!';
+   statusMessageDiv.style.display = 'inline';
+   statusMessageDiv.innerText = 'Copied!';
 
    delayhideDiv("statusMessage");
 
@@ -196,10 +214,10 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
    console.log("Save button is clicked");
 
-   const statusMessage = document.getElementById('statusMessage');
+   // const statusMessage = document.getElementById('statusMessage');
 
    detailsElement = document.getElementById('detailsToCopyHidden');
-   statusMessage.style.display = 'inline';
+   statusMessageDiv.style.display = 'inline';
 
    console.log(detailsElement);
    
@@ -208,7 +226,7 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
    let data = {};
    
    data.cellValue = detailsElement.innerText;
-   statusMessage.textContent = "Saving...";
+   statusMessageDiv.textContent = "Saving...";
    // alert(data)
    // alert(data.cellValue)
 
@@ -233,12 +251,12 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
       // Display the server response
       // saveCounter++;
       // alert(saveCounter);
-      statusMessage.textContent = data.message;
+      statusMessageDiv.textContent = data.message;
       
     })
    .catch((error) => {
      console.error('Error:', error);
-     statusMessage.textContent = "Error: " + error;
+     statusMessageDiv.textContent = "Error: " + error;
    });
 
    delayhideDiv("statusMessage");
