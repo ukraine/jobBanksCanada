@@ -32,12 +32,12 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
         name: "Status",
         value: "0"
       },
+      "dateSaved": {
+         name: "Saved Date",
+         value: ""
+       },
       "datePosted": {
         name: "Publication Date",
-        value: ""
-      },
-      "dateSaved": {
-        name: "Saved Date",
         value: ""
       },
       "validThrough": {
