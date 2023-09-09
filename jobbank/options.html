@@ -67,10 +67,10 @@ body {
 
 } 
 
-
 #highlight {
    background-color: rgb(255, 255, 176);
    padding: 3px 5px;
+   cursor: copy;
    
 }
 
@@ -79,25 +79,29 @@ body {
 </head>
 <body>
    <header>
-   <h1>CanaDreeemJob</h1>
+   <h1>Options <span style="font-weight: 400;"> &mdash; CanaDreeemJob</span></h1>
    <p>Saves the Canadian job listings into a Google Spreadsheets for easy applying and tracking</p>
    </header>
-   
+
+<hr>
+
    <div id='detailsCard'>
 
-      <div id="actions">
-         <button id="saveJobButton">Save</button>
-         <button id="copyJobButton">Copy</button>
-         <span id="statusMessage"></span>
-      </div>
-
-      <div id="details"></div>
+      <form>
+      <p>1. <b>Specify Google Spreadsheets</b> to save job postings to
+      <p><input type="text" id="spreadsheetUrl" placeholder="Paste spreadsheets URL">
+      <input type="hidden" id="sheetName" value="Canada_Job_Search">
+         <button id="saveOptionsButton">Save</button> <span id="statusMessage"></span>
+      </form>
 
    </div>
-  
-   <div id="detailsToCopyHidden"></div>
-   <div id="settings"><a href="options.html" target="_blank">Settings</a></div>
-  <script src="popup.js"></script>
+
+   <p>2. <b>Give edit permissions</b> to our bot, using this email address
+
+      <p><span id="highlight">rsl-letters@qeepier.iam.gserviceaccount.com</span> <span id="statusMessageCopy"></span>
+
+      <p>Need help giving a permission? <a href='https://support.google.com/docs/answer/9331169?hl=en' target="_blank">Get it here</a>
+      <script src="options.js"></script>
 
 </body>
 </html>

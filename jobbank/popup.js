@@ -18,7 +18,7 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
    else statusMessageDiv.innerHTML = `I\'m sorry, this page is not yet supported. Please <a target='_blank' href='https://yatsiv.com/f/${pluginName}?other=${primaryDomain}'>click here</a> if you want us to enable it`;
 
  });
- 
+
  // Listen for messages from the content script
  browser.runtime.onMessage.addListener(function(message) {
    // Display the details in the popup
@@ -211,58 +211,54 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
  // Add an event listener to the button
  document.getElementById('saveJobButton').addEventListener('click', function() {
+  
+  console.log("Save button is clicked");
 
-   console.log("Save button is clicked");
+  browser.storage.local.get(["spreadsheetDocumentId", "sheetName"]).then(result => {
+    const spreadsheetDocumentId = result.spreadsheetDocumentId;
+    const sheetName = result.sheetName;
 
-   // const statusMessage = document.getElementById('statusMessage');
+    detailsElement = document.getElementById('detailsToCopyHidden');
+    statusMessageDiv.style.display = 'inline';
+    console.log(detailsElement);
 
-   detailsElement = document.getElementById('detailsToCopyHidden');
-   statusMessageDiv.style.display = 'inline';
+    spreadsheetAPIURL = "https://beta.russol.info/simpleTools/tables/index.php?method=json";
 
-   console.log(detailsElement);
-   
-   spreadsheetAPIURL = "https://beta.russol.info/simpleTools/tables/index.php?method=json";
-
-   let data = {};
-   
-   data.cellValue = detailsElement.innerText;
-   statusMessageDiv.textContent = "Saving...";
-   // alert(data)
-   // alert(data.cellValue)
-
-   data.spreadsheetId = "1XsWTk-730YbZJtdBTTHep3oo79cSb35Hm6zknlhZnT4";
-   // data.cellsRange = "Temp!A" . saveCounter;
-   data.cellsRange = "Job_search_addon_test";
-   // data.savedCounter = saveCounter;
-
-   // alert(data.spreadsheetId);
-   // alert(data.cellsRange);
+    let data = {};
+    
+    data.cellValue = detailsElement.innerText;
+    statusMessageDiv.textContent = "Saving...";
+    // alert(data)
+    // alert(data.cellValue)
  
-   // Send a POST request
-   fetch(spreadsheetAPIURL, {
-     method: 'POST',
-     headers: {
-       'Content-Type': 'application/json'
-     },
-     body: JSON.stringify(data)
-   })
-   .then(response => response.json())
-   .then(data => {
-      // Display the server response
-      // saveCounter++;
-      // alert(saveCounter);
-      statusMessageDiv.textContent = data.message;
-      
+    console.log(spreadsheetDocumentId);
+ 
+    data.spreadsheetId = spreadsheetDocumentId;
+    data.cellsRange = sheetName;
+    // data.cellsRange = "Job_search_addon_test";
+
+    fetch(spreadsheetAPIURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
     })
-   .catch((error) => {
-     console.error('Error:', error);
-     statusMessageDiv.textContent = "Error: " + error;
-   });
+    .then(response => response.json())
+    .then(data => {
+      statusMessageDiv.textContent = data.message;
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      statusMessageDiv.textContent = "Error: " + error;
+    });
 
-   delayhideDiv("statusMessage");
+    delayhideDiv("statusMessage");
 
- });
- 
+  });
+});
+
+
  // Append the button to the body (or any other element)
  
  function delayhideDiv(id) {
@@ -272,7 +268,5 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
       document.getElementById(id).style.display = 'none';
    },2000)
  }
-
- 
 
 });
