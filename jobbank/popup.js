@@ -36,14 +36,6 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
          name: "Saved Date",
          value: ""
        },
-      "datePosted": {
-        name: "Publication Date",
-        value: ""
-      },
-      "validThrough": {
-        name: "Apply by",
-        value: ""
-      },
       "jobId": {
         name: "Job ID",
         value: ""
@@ -54,6 +46,10 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
       },
       "companyName": {
         name: "Company",
+        value: ""
+      },
+      "verified": {
+        name: "Verified",
         value: ""
       },
       "website": {
@@ -68,10 +64,14 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
         name: "Email",
         value: ""
       },
-      "verified": {
-        name: "Verified",
-        value: ""
-      },
+      "specialInstructions": {
+         name: "Instructions to follow and questions to be answered",
+         value: ""
+       }, 
+      "referenceNumber": {
+         name: "Reference #",
+         value: ""
+       },
       "minValue": {
         name: "Min. Salary",
         value: ""
@@ -83,6 +83,10 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
       "workHours": {
         name: "Hours per week",
         value: ""
+      },
+      "medianWage": {
+         name: "Median Wage",
+         value: ""
       },
       "addressRegion": {
         name: "Region",
@@ -100,18 +104,22 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
         name: "Postal Code",
         value: ""
       },
-      "referenceNumber": {
-         name: "Reference #",
+      "validThrough": {
+         name: "Apply by",
          value: ""
        },
-      "specialInstructions": {
-         name: "Instructions to follow and questions to be answered",
+      "datePosted": {
+         name: "Job posted on",
          value: ""
-       }, 
-      "industry": {
-        name: "Industry",
-        value: ""
-      },
+       },
+      "source": {
+         name: "Source",
+         value: ""
+       },
+       "industry": {
+         name: "Industry",
+         value: ""
+       },
       "cms": {
         name: "Content Management System",
         value: ""
@@ -135,27 +143,30 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
       "programmingServer": {
         name: "Programming Server",
         value: ""
-      },
-      "source": {
-        name: "Source",
-        value: ""
       }
+
     };
 
-    toBeDisplayed = ["title", "companyName", "website", "email", 
-    "applyOnlineUrl", "datePosted", "minValue", "maxValue", "workHours", "addressRegion", "addressLocality", "streetAddress", "postalCode", "validThrough", "specialInstructions"];
+    toBeDisplayed = [
+      "title", "companyName", "website", "email", 
+      "applyOnlineUrl", "datePosted", "minValue", "maxValue", "medianWage",
+      "workHours", "addressRegion", "addressLocality", "streetAddress",
+      "postalCode", "validThrough", "specialInstructions"
+   ];
     
 
    // Construct an HTML string for the description list (dl)
    let dlHtml = '<dl>';
 
    let dataToPost = '';
+   let headerToPost = '';
  
    // Iterate through the extractedData and add dt (term) and dd (description) elements for non-empty values
    for (const key in keysToExtractForuOutput) {
       const { name } = keysToExtractForuOutput[key];
       const value = extractedData[key];
       dataToPost += `"${value}", `;
+      headerToPost += `"${name}", `;
       if (value !== "" && value !== "0" && toBeDisplayed.includes(key) ) {
         dlHtml += `<dt>${name}</dt><dd>${value}</dd>`;
       }
@@ -207,16 +218,16 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
  });
  
-
-
  // Add an event listener to the button
  document.getElementById('saveJobButton').addEventListener('click', function() {
   
   console.log("Save button is clicked");
 
+  // "counter" - add later
   browser.storage.local.get(["spreadsheetDocumentId", "sheetName"]).then(result => {
     const spreadsheetDocumentId = result.spreadsheetDocumentId;
     const sheetName = result.sheetName;
+    const counter = result.counter;
 
     detailsElement = document.getElementById('detailsToCopyHidden');
     statusMessageDiv.style.display = 'inline';
@@ -226,6 +237,10 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
     let data = {};
     
+    // if (counter < 1) {
+      // detailsElement.value += headerToPost;
+    // }
+
     data.cellValue = detailsElement.innerText;
     statusMessageDiv.textContent = "Saving...";
     // alert(data)

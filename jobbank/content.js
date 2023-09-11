@@ -17,12 +17,13 @@ const keysToExtractForuOutput = [
       "status", 
       "datePosted", "jobId",
       "title", "companyName", "website", "email", "applyOnlineUrl",
-      "minValue", "maxValue", "workHours", "referenceNumber",
+      "minValue", "maxValue", "workHours", "medianWage", "referenceNumber",
       "addressRegion", "addressLocality", "streetAddress", "postalCode", 
       "specialInstructions", "dateSaved", "validThrough", 
-      "industry", "cms", "verified", "yearSiteUpdated", "aboutUrl", 
-      "portfolioUrl", "contactUrl", 
-      "programmingServer", "source",
+      "industry", "source" 
+      // "cms", "verified", "yearSiteUpdated", "aboutUrl", 
+      // "portfolioUrl", "contactUrl", 
+      // "programmingServer"
    ];
 
     // Initialize all variables to "0"
@@ -62,8 +63,28 @@ extractedData['status'] = "new";
 var emailElement = document.querySelector('h4#htaemail + p a');
 extractedData["email"] = emailElement !== null ? emailElement.getAttribute('href').replace('mailto:', '') : "0";
 
+// To be removed
 var referenceNumberElement = document.querySelector('h4#htaemail + p + h4 + p');
 extractedData["referenceNumber"] = referenceNumberElement !== null ? referenceNumberElement.innerText : "0";
+
+
+
+
+
+// Find all <dt> elements within <dl>
+const dtElements = document.querySelectorAll('dl dt');
+
+// Iterate through <dt> elements and find the one with the desired text
+dtElements.forEach(dtElement => {
+  if (dtElement.textContent.includes("Median wage")) {
+    // Find the corresponding <dd> element and extract the value
+    const ddElement = dtElement.nextElementSibling;
+    extractedData["medianWage"] = ddElement.textContent.trim().split(' ')[0];
+  }
+});
+
+
+
 
 
 
@@ -142,7 +163,7 @@ extractedData["companyName"] = companyNameElement1 !== null ? companyNameElement
 extractedData["companyName"] = extractedData["companyName"].toLowerCase().replace(/\b\w/g, l => l.toUpperCase());
 
 const verifiedElement = document.querySelector('.verified.job-marker .text');
-extractedData["verified"] = verifiedElement ? verifiedElement.innerText : "0";
+extractedData["verified"] = verifiedElement ? "yes" : "no";
 
 var websiteElement = document.querySelector('span[property="hiringOrganization"] a');
 extractedData['website'] = websiteElement !== null ? websiteElement.getAttribute('href') : "0";

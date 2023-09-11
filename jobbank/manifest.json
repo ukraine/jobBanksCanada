@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "CanaDreeemJob - grab-n-track jobs in Spreadsheets",
+  "name": "CanaDreeemJobb - grab-n-track jobs in online Sheets",
   "description": "A grabber retrieves the Canadian job listings into a Google Spreadsheets for easy applying and tracking",
   "version": "1.0",
   "permissions": ["activeTab", "scripting", "tabs", "storage"],
