@@ -30,26 +30,36 @@ function saveOptions(e) {
 
 // Add a click event listener to the copy button
 document.getElementById('highlight').addEventListener('click', function() {
-   // Create a new textarea element and set its value to the details
-   var textarea = document.createElement('textarea');
-   textarea.style.display = 'none';
-   textarea.value = document.getElementById('highlight').innerText;
-   document.body.appendChild(textarea);
- 
-   // Select the textarea's content and copy it to the clipboard
-   textarea.select();
-   document.execCommand('copy');
- 
-   // Remove the textarea element
-   document.body.removeChild(textarea);
- 
-   // Display a message indicating that the details have been copied
-   statusMessageCopyDiv.style.display = 'inline';
-   statusMessageCopyDiv.innerText = 'Copied!';
+
+// Get the element by its ID
+var element = document.getElementById('highlight');
+
+// Create a textarea element
+var textarea = document.createElement('textarea');
+textarea.value = element.innerText;
+
+// Append the textarea to the DOM
+document.body.appendChild(textarea);
+
+// Select the text in the textarea
+textarea.select(); 
+
+// Copy the selected text to the clipboard
+document.execCommand('copy');
+
+// Remove the textarea from the DOM
+document.body.removeChild(textarea);
+
+// Display a message indicating that the details have been copied
+statusMessageCopyDiv.style.display = 'inline';
+statusMessageCopyDiv.innerText = 'Copied!';
+
+
+console.log(element.innerText);
 
    delayhideDiv("statusMessageCopy");
 
- });
+});
 
 
 function delayhideDiv(id) {

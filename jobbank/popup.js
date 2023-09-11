@@ -10,7 +10,7 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
    const url = new URL(tabs[0].url);
    const primaryDomain = url.hostname;
    const sourceUrlTemplate = "jobsearch/jobposting/";
-   const pluginName = 'CanaDreemJob'
+   const pluginName = 'CanaDreemJoeb'
 
    statusMessageDiv.style.display = 'inline';
 
@@ -233,7 +233,7 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
     statusMessageDiv.style.display = 'inline';
     console.log(detailsElement);
 
-    spreadsheetAPIURL = "https://beta.russol.info/simpleTools/tables/index.php?method=json";
+    spreadsheetAPIURL = "https://apps.yatsiv.com/sheets/?method=json";
 
     let data = {};
     
