@@ -116,7 +116,7 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
          name: "Source",
          value: ""
        },
-       "industry": {
+       /* "industry": {
          name: "Industry",
          value: ""
        },
@@ -144,6 +144,7 @@ browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
         name: "Programming Server",
         value: ""
       }
+      */
 
     };
 
