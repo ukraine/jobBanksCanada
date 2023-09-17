@@ -2,3 +2,7 @@ jobbank/tmp.content-extra-fields.js
 jobbank/popup.1.js
 jobbank/prod/**/*.zip
 jobbank/media/*.jpg
+jobbank/media/*.mp4
+jobbank/media/*.wav
+jobbank/media/*.mp3
+jobbank/media/*.wmv

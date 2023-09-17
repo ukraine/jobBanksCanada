@@ -69,11 +69,35 @@ body {
 
 } 
 
+.detailsCard {
+
+   padding: 1px 18px;
+
+}
+
+input[type="text"] {
+   width: 97.5%;
+}
+
 #highlight {
    background-color: rgb(255, 255, 176);
    padding: 3px 5px;
    cursor: copy;
    
+}
+
+.step {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #333;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  margin-right: 10px;
 }
 
 </style>
@@ -88,10 +112,14 @@ body {
    <!-- <p>How it works: save a preferred job posting and apply whenever you're ready -->
    <p>We strongly suggest to <a href="https://docs.google.com/spreadsheets/d/1JiMUXGvBUXWRSofbIl9yPJZzdJHVkVc2zXDzb0iA5qc/copy" target="_blank"><b>copy</b></a> our Sheets template. The names of the sheets should remain intact.
 
-   <div id='detailsCard'>
+      <br>
+
+   <div id='detailsCard' class="detailsCard">
 
       <form>
-      <p>1. <b>Specify Google Spreadsheets</b> to save your preferred job postings to
+      <p><span class="step">1</span> <b>Specify Google Spreadsheets</b>
+         <span> to save your preferred job postings to</span>
+
       <p><input type="text" id="spreadsheetUrl" placeholder="Paste spreadsheets URL">
       <input type="hidden" id="sheetName" value="My_Job_Listings">
          <button id="saveOptionsButton">Save</button> <span id="statusMessage"></span>
@@ -99,12 +127,26 @@ body {
 
    </div>
 
-   <p>2. <b>Give the Sheets edit permissions</b> to our bot, using this email address. Need help? <a href='https://support.google.com/docs/answer/9331169?hl=en' target="_blank">See short instructions</a>
+   <div class="detailsCard">
 
-      <p><span id="highlight">rsl-letters@qeepier.iam.gserviceaccount.com</span> <span id="statusMessageCopy"></span>
+   <p><span class="step">2</span> <b>Give the Sheets edit permissions</b>
+      <span> to our bot, using this email address. Need help? <a href='https://support.google.com/docs/answer/9331169?hl=en' target="_blank">See short instructions</a></span>
 
-         <p>3. <b>Go to the Job Bank</b> and start <a href="https://www.jobbank.gc.ca/jobsearch/jobsearch?searchstring=software&sort=D&rows=20" target="_blank">looking for a job</a></p>
+   <p><span id="highlight">rsl-letters@qeepier.iam.gserviceaccount.com</span> <span id="statusMessageCopy"></span>
+
+   </div>
+
+   <div class="detailsCard">
+
+      <p><span class="step">3</span> <b>Go to the Job Bank</b>
+         <span> and start <a href="https://www.jobbank.gc.ca/jobsearch/jobsearch?searchstring=software&sort=D&rows=20" target="_blank">looking for a job</a>
+         </span>
+
+   </div>
+
       <script src="options.js"></script>
+
+      
 
 </body>
 </html>
