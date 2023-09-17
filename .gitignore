@@ -1,11 +1,4 @@
-jobbank/jobBank.9.zip
 jobbank/tmp.content-extra-fields.js
 jobbank/popup.1.js
-jobbank/jobBank.10.OptionsPage.zip
-jobbank/zips/jobBank.9.zip
-jobbank/zips/jobBank.10.OptionsPage.zip
-jobbank/jobBank.11.MedianWage.zip
-jobbank/popup.js.bak
-jobbank/jobBank.11.Submitted.zip
-jobbank/zips/jobBank.11.Submitted.zip
-jobbank/manifest.json.bak
+jobbank/prod/**/*.zip
+jobbank/media/*.jpg
