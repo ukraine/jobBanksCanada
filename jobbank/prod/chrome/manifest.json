@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "CanaDreeemJoeb — track your jobs in a Sheets",
+  "description": "A grabber retrieves the Canadian job listings into a Google Spreadsheets for easy applying and tracking",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "options_ui": {
+    "page": "options.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon-16.png",
+    "64": "icon-64.png",
+    "128": "icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon-16.png",
+      "64": "icon-64.png",
+      "128": "icon-128.png"
+    }
+  }
+}

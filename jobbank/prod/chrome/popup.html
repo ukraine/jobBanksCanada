@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+
+<style>
+
+body {
+    font-size: 90%;
+    min-width: 660px;
+     margin-top: 5px;
+     background: #f8f8f8;
+     color: #222222;
+}
+/* #4d4c4c;
+ */
+ dl {
+     padding: 0.5em;
+}
+ dt {
+     float: left;
+     clear: left;
+     width: 20%;
+     text-align: right;
+     font-weight: bold;
+}
+ dd {
+     margin: 0 0 0 21.5%;
+     padding: 0 0 0.5em 0;
+}
+dd br { /*dd:last-child */
+     line-height: 1.8em !important;
+}
+
+ #actions {
+     margin: 6px 0 -10px 13px;
+}
+ h1 + p {
+    margin-top: -12px;
+     font-weight: 400 !important;
+     font-size: 90%;
+}
+ .detailsCard {
+    background-color: #fff;
+     padding: 8px 0px 0px;
+     border-radius: 8px;
+     margin-top: 16px;
+     box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.19);
+}
+ #detailsToCopyHidden, #saveJobButton, #copyJobButton {
+    display: none;
+}
+ header {
+     background-color:#f8f8f8;
+     color:#212121;
+}
+ header h1 {
+    color: #212121;
+     font-weight: 800;
+     margin-top: 0px !important
+}
+
+#settings {
+   margin-top: 15px;
+  font-size: 80%;
+  padding-top: 5px;
+
+} 
+
+
+#highlight {
+   background-color: rgb(255, 255, 176);
+   padding: 3px 5px;
+   
+}
+
+</style>
+
+</head>
+<body>
+   <header>
+   <h1>CanaDreeemJoeb</h1>
+   <p>Saves the Canadian job listings into a Google Spreadsheets for easy applying and tracking</p>
+   </header>
+   
+   <div id='detailsCard'>
+
+      <div id="actions">
+         <button id="saveJobButton">Save</button>
+         <button id="copyJobButton">Copy</button>
+         <span id="statusMessage"></span>
+      </div>
+
+      <div id="details"></div>
+
+   </div>
+  
+   <div id="detailsToCopyHidden"></div>
+   <div id="settings"><a href="options.html" target="_blank">Settings</a> &middot; &copy; CanaDreeemJoeb &middot; <a href="https://yatsiv.com/f/canadreeemjoeb" target="_blank">Get free support now</a></div>
+   
+  <script src="popup.js"></script>
+
+</body>
+</html>

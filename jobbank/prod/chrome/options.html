@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+
+<style>
+
+body {
+    font-size: 90%;
+     margin-top: 5px;
+     background: #f8f8f8;
+     color: #222222;
+}
+/* #4d4c4c;
+ */
+ dl {
+     padding: 0.5em;
+}
+ dt {
+     float: left;
+     clear: left;
+     width: 20%;
+     text-align: right;
+     font-weight: bold;
+}
+ dd {
+     margin: 0 0 0 21.5%;
+     padding: 0 0 0.5em 0;
+}
+ dd:last-child {
+     line-height: 1.8em;
+}
+ #actions {
+     margin: 23px 77px -10px;
+}
+ h1 + p {
+    margin-top: -12px;
+     font-weight: 400 !important;
+     font-size: 90%;
+}
+ .detailsCard {
+    background-color: #fff;
+     padding: 8px 0px 0px;
+     border-radius: 8px;
+     margin-top: 16px;
+     box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.19);
+}
+ #detailsToCopyHidden1, #saveJobButton, #copyJobButton {
+    display: none;
+}
+ header {
+     background-color:#f8f8f8;
+     color:#212121;
+}
+ header h1 {
+    color: #212121;
+     font-weight: 800;
+     margin-top: 0px !important
+}
+
+#statusMessage, #statusMessageCopy {color: green; font-weight: bold;}
+
+#settings {
+   margin-top: 15px;
+  border-top: 1px solid #ccc;
+  font-size: 80%;
+  padding-top: 5px;
+
+} 
+
+#highlight {
+   background-color: rgb(255, 255, 176);
+   padding: 3px 5px;
+   cursor: copy;
+   
+}
+
+</style>
+
+</head>
+<body>
+   <header>
+   <h1>Options <span style="font-weight: 400;"> &mdash; CanaDreeemJoeb</span></h1>
+   <p>Saves the Canadian job listings into a Google Spreadsheets for easy applying and tracking</p>
+   </header>
+
+   <!-- <p>How it works: save a preferred job posting and apply whenever you're ready -->
+   <p>We strongly suggest to <a href="https://docs.google.com/spreadsheets/d/1JiMUXGvBUXWRSofbIl9yPJZzdJHVkVc2zXDzb0iA5qc/copy" target="_blank"><b>copy</b></a> our Sheets template. The names of the sheets should remain intact.
+
+   <div id='detailsCard'>
+
+      <form>
+      <p>1. <b>Specify Google Spreadsheets</b> to save your preferred job postings to
+      <p><input type="text" id="spreadsheetUrl" placeholder="Paste spreadsheets URL">
+      <input type="hidden" id="sheetName" value="My_Job_Listings">
+         <button id="saveOptionsButton">Save</button> <span id="statusMessage"></span>
+      </form>
+
+   </div>
+
+   <p>2. <b>Give the Sheets edit permissions</b> to our bot, using this email address. Need help? <a href='https://support.google.com/docs/answer/9331169?hl=en' target="_blank">See short instructions</a>
+
+      <p><span id="highlight">rsl-letters@qeepier.iam.gserviceaccount.com</span> <span id="statusMessageCopy"></span>
+
+         <p>3. <b>Go to the Job Bank</b> and start <a href="https://www.jobbank.gc.ca/jobsearch/jobsearch?searchstring=software&sort=D&rows=20" target="_blank">looking for a job</a></p>
+      <script src="options.js"></script>
+
+</body>
+</html>
