@@ -1,10 +1,10 @@
-# Navigating Canada's Job Market: Automating Job Applications as a Software Engineer
+# Navigating Canada's Job Market: How I tried to automate Job Applications as a Software Engineer
 
 Starting my job hunt in a new country felt like stepping into a massive library with no idea where to find the book I needed. Coming right after the neighboring country's violent invasion of Ukraine in 2022, I arrived with high hopes but quickly encountered a wall.
 
 The job market here was a whole new world, and my usual approach just wasn't cutting it. Friends and settlement organizations suggested trying online job boards such as Job Bank Canada and Indeed.
 
-### The concept of Job Application Automation with a Human Touch
+## The concept of Job Application Automation with a Human Touch
 
 I wasn't aiming to spam companies with my resume. Instead, I sought to automate certain aspects of the process to save time and target suitable jobs for me in a more personalized manner. Moreover, it wasn’t solely about finding a job; it was also about learning how to use technology and AI, in particular.
 
@@ -12,56 +12,54 @@ In sharing this story, I hope to inspire others to look at their challenges diff
 
 Here's how I pieced it together, combining RSS feeds, server-side scripts, custom Chrome extensions, and the innovative use of AI to enrich data and personalize applications:
 
-### Step 1: RSS for Job Listings
+## Step 1: RSS for Job Listings
 
 Daily, a script on a Linux server I set up would fetch RSS feeds from Job Bank Canada, filtering opportunities based on my predefined keywords. It would store the data gathered into a cache file that another part of the system would work with later.
 
 This step appreciates the enduring value of RSS, allowing me and other old-school guys to stay updated with minimal effort. So a big special thank you to the services and platforms like Job Bank for maintaining it
 
-Example of an RSS URL with a keyword
+[Example of an RSS URL with a keyword](https://www.jobbank.gc.ca/jobsearch/feed/jobSearchRSSfeed?fage%3D2%26fcid%3D5741%26fcid%3D5753%26fcid%3D12348%26fcid%3D12351%26fcid%3D20945%26fcid%3D24755%26fcid%3D296544%26fcid%3D296623%26fn21%3D21233%26fn21%3D21234%26fn21%3D22220%26term%3Dweb%26sort%3DD%26rows%3D100&sa=D&source=editors&ust=1712177363672906&usg=AOvVaw30km108n20ZSnXLKLLNKT8) 
 
-[https://www.jobbank.gc.ca/jobsearch/feed/jobSearchRSSfeed?fage=2&fcid=5741&fcid=5753&fcid=12348&fcid=12351&fcid=20945&fcid=24755&fcid=296544&fcid=296623&fn21=21233&fn21=21234&fn21=22220&term=web&sort=D&rows=100](https://www.google.com/url?q=https://www.jobbank.gc.ca/jobsearch/feed/jobSearchRSSfeed?fage%3D2%26fcid%3D5741%26fcid%3D5753%26fcid%3D12348%26fcid%3D12351%26fcid%3D20945%26fcid%3D24755%26fcid%3D296544%26fcid%3D296623%26fn21%3D21233%26fn21%3D21234%26fn21%3D22220%26term%3Dweb%26sort%3DD%26rows%3D100&sa=D&source=editors&ust=1712177363672906&usg=AOvVaw30km108n20ZSnXLKLLNKT8) 
-
-#### Technologies used:
+### Technologies used:
 
 *   PHP
 *   PHP Simple XML
 *   Linux Bash Scripting
 *   Crontabs
 
-### Step 2: The Manual Touch: Reviewing Matches
+## Step 2: The Manual Touch: Reviewing Matches
 
 Despite the automation intention, I chose to review the matches manually, ensuring that only the most relevant opportunities were considered. At least at the beginning. This blend of automation and personal oversight was enough for maintaining quality in the job hunt. I figured out there were too many vague jobs that didn't sound legit to me.
 
 Technically the script reads the cached file and displays the number of items found for each keyword. At first I was copying job posting details manually, but I gave up doing so for each listing. Even so sometimes the same position can be seen twice or more if it contains different keywords, so…
 
-#### Technologies used:
+### Technologies used:
 
 *   PHP
 
-### Step 3: Crafting a Custom Chrome Extension
+## Step 3: Crafting a Custom Chrome Extension
 
 ![AD_4nXdcZjmCWNhCHue4lV6-NubGJgmr75CMEconC7pKjjZdPOeKKvgi5o-zx9Lj7mtgRrs4-Nq5HrNuQB-A8dg6uncdJtXQGinYSOz1Iei1EA5HYWqIFobUNh4W92rKeDhsa92OSj9t-2Scv4SISbfJMl0eTqfs](https://lh7-us.googleusercontent.com/docsz/AD_4nXdcZjmCWNhCHue4lV6-NubGJgmr75CMEconC7pKjjZdPOeKKvgi5o-zx9Lj7mtgRrs4-Nq5HrNuQB-A8dg6uncdJtXQGinYSOz1Iei1EA5HYWqIFobUNh4W92rKeDhsa92OSj9t-2Scv4SISbfJMl0eTqfs?key=ztMFgSE0-QFvPjLHrdcH3A)
 
-Screenshot of the extracted data ([link](https://www.google.com/url?q=https://lh3.googleusercontent.com/5Dd47d3tikwEqPX6mCTQCR5G0HmVJmd95WNbcMVzQJx1KMU9D0UvyV1o3lyNFLLh2cmHwNoRveJgPSMcVxUM_1gF%3Ds1280-w1280-h800&sa=D&source=editors&ust=1712177363674502&usg=AOvVaw0GCaRTRx8dDH9VCbRtopl1))
+Screenshot of the extracted data ([link](https://lh3.googleusercontent.com/5Dd47d3tikwEqPX6mCTQCR5G0HmVJmd95WNbcMVzQJx1KMU9D0UvyV1o3lyNFLLh2cmHwNoRveJgPSMcVxUM_1gF%3Ds1280-w1280-h800&sa=D&source=editors&ust=1712177363674502&usg=AOvVaw0GCaRTRx8dDH9VCbRtopl1))
 
 ..to expedite the review process and eliminate duplicates, I developed a simple parsing Chrome extension. The details it captured included the position name, salary range, contact info, and other essential data. I opted to automate this aspect in later versions of the system and either discard or repurpose the extension.
 
 Once I obtained the data, if I deemed the listing worthwhile, a click would save it directly to a Google Spreadsheet. Initially, I didn't want to set up a separate database for this project. Therefore, this convenient and widely used Google product suited my needs, allowing me to maintain simplicity
 
-#### The extension:
+### The extension:
 
-[View at Google Chrome’s store](https://www.google.com/url?q=https://chromewebstore.google.com/detail/canada-job-%25E2%2580%2594-track-jobs-i/lnlddjilnbfoklnfljfolahkchldobgc&sa=D&source=editors&ust=1712177363675108&usg=AOvVaw1ntRT3uuYzCZnVPXkykCyS)
+[Install the extension](https://chromewebstore.google.com/detail/canada-job-%25E2%2580%2594-track-jobs-i/lnlddjilnbfoklnfljfolahkchldobgc&sa=D&source=editors&ust=1712177363675108&usg=AOvVaw1ntRT3uuYzCZnVPXkykCyS)
 
-[Github](https://github.com/ukraine/jobBanksCanada)
+[View Github source code](https://github.com/ukraine/jobBanksCanada)
 
-#### Technology used:
+### Technology used:
 
 *   Google Spreadsheets API
 *   Google Chrome’s extension
 *   JavaScript
 
-### Step 4: Enriching Data with Server-Side Scripts and AI
+## Step 4: Enriching Data with Server-Side Scripts and AI
 
 I then enhanced my spreadsheet's listings using a server-side script to extract insights from employer websites, such as career page addresses, additional contact details, and social media links. More technical details like the server software and programming languages used were also gathered
 
@@ -69,14 +67,14 @@ I then enhanced my spreadsheet's listings using a server-side script to extract 
 
 The major breakthrough came from integrating OpenAI's API, which summarized websites and classified industries, enriching each saved job listing with valuable context. To optimize OpenAI token usage, I trimmed the content to focus on the most relevant sections for analysis, avoiding excess from footers or irrelevant links
 
-#### Technology used
+### Technology used
 
 *   PHP cURL
 *   Prompt Engineering
 *   OpenAI API
 *   Google Spreadsheets API
 
-### Step 5: Personalizing Cover Letters and resumes objectives
+## Step 5: Personalizing Cover Letters and resumes objectives
 
 To avoid the impersonal nature of mass applications, I used OpenAI's API selectively to tailor cover letters, inserting placeholders for the company name, industry, and the software they utilize. When you know the product or service the company produces, you understand the value you may provide to it.
 
@@ -84,25 +82,25 @@ To avoid the impersonal nature of mass applications, I used OpenAI's API selecti
 
 That was the only way to stand out among other applicants who use the semi-cold outreach approach. This strategy demonstrated genuine interest in each employer even if I visited the website automatically in less than a second.
 
-Technology used
+### Technology used
 
 *   OpenAI API
 *   PHP
 
-### Step 6: Generating PDFs for Applications
+## Step 6: Generating PDFs for Applications
 
 Aware of the limitations and risks associated with direct links in emails, I opted for a more conservative approach: converting resumes and cover letters into PDFs. Despite my preference for digital simplicity, the goal was to ensure my applications reached their destination with a reduced chance of being sidelined into spam folders or worse.
 
 The PDF files generated were cached on the server side to be attached to my emails.
 
-#### Technology used:
+### Technology used:
 
 *   PHP
 *   DomPDF
 *   Ubuntu Linux
 *   JavaScript
 
-### Step 7: Enhancing Communication and Email Dispatch
+## Step 7: Enhancing Communication and Email Dispatch
 
 After the initial steps of data enrichment and personalization it is now time for the critical phase — communication.
 
@@ -121,7 +119,7 @@ To further avoid the stigma of automated spam, emails were dispatched at random 
 *   Water.css
 *   PHP
 
-### Step 8: Refining Email opening Tracking
+## Step 8: Refining Email opening Tracking
 
 Another gem of my job application toolkit was an email tracking system. I implemented a technique to outsmart tracker caching, subtly changing the tracking image's color scheme embedded in my email signature with each dispatch.
 
@@ -131,13 +129,13 @@ This ensured each email open was uniquely recorded, triggering a script to log t
 
 While this tactic faced limitations with Gmail, it proved highly effective with other providers, particularly corporate ones.
 
-#### Technologies used:
+### Technologies used:
 
 *   cURL
 *   Google Spreadsheets API
 *   PHP
 
-### Insights and Metrics
+## Conclusion Insights
 
 Sending each resume out of over 400 felt like giving away a great book to someone who's already received 400 others. The rare responses  I got were like small beams of light—rare but motivating. Adding a tracking system helped me see if my book even stood out in the pile.
 
@@ -147,4 +145,4 @@ Automating my job search was a huge learning curve. It was more than just speedi
 
 The experience taught me valuable lessons about using technology wisely and staying true to myself. It's not about replacing the personal touch with technology, but enhancing it, showing that with the right approach, we can push beyond what we thought was possible.
 
-[Version 1: draft](https://www.google.com/url?q=https://docs.google.com/document/d/1UdR_5meaRg5y9kMv-XGOk_8Ju0imft7o_1auyBddZX0/edit%23heading%3Dh.mkmdcpx4tcez&sa=D&source=editors&ust=1712177363681632&usg=AOvVaw13i7O3tjfBx4ZrulC07glH)
+[Version 1: draft](https://docs.google.com/document/d/1UdR_5meaRg5y9kMv-XGOk_8Ju0imft7o_1auyBddZX0/edit%23heading%3Dh.mkmdcpx4tcez&sa=D&source=editors&ust=1712177363681632&usg=AOvVaw13i7O3tjfBx4ZrulC07glH)
