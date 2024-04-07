@@ -20,7 +20,7 @@ This step appreciates the enduring value of RSS, allowing me and other old-schoo
 
 [Example of an RSS URL with a keyword](https://www.jobbank.gc.ca/jobsearch/feed/jobSearchRSSfeed?fage%3D2%26fcid%3D5741%26fcid%3D5753%26fcid%3D12348%26fcid%3D12351%26fcid%3D20945%26fcid%3D24755%26fcid%3D296544%26fcid%3D296623%26fn21%3D21233%26fn21%3D21234%26fn21%3D22220%26term%3Dweb%26sort%3DD%26rows%3D100&sa=D&source=editors&ust=1712177363672906&usg=AOvVaw30km108n20ZSnXLKLLNKT8) 
 
-### Technologies used:
+### Technologies used
 
 *   PHP
 *   PHP Simple XML
@@ -33,7 +33,7 @@ Despite the automation intention, I chose to review the matches manually, ensuri
 
 Technically the script reads the cached file and displays the number of items found for each keyword. At first I was copying job posting details manually, but I gave up doing so for each listing. Even so sometimes the same position can be seen twice or more if it contains different keywords, so…
 
-### Technologies used:
+### Technologies used
 
 *   PHP
 
@@ -53,7 +53,7 @@ Once I obtained the data, if I deemed the listing worthwhile, a click would save
 
 [View Github source code](https://github.com/ukraine/jobBanksCanada)
 
-### Technology used:
+### Technologies used
 
 *   Google Spreadsheets API
 *   Google Chrome’s extension
@@ -67,7 +67,7 @@ I then enhanced my spreadsheet's listings using a server-side script to extract 
 
 The major breakthrough came from integrating OpenAI's API, which summarized websites and classified industries, enriching each saved job listing with valuable context. To optimize OpenAI token usage, I trimmed the content to focus on the most relevant sections for analysis, avoiding excess from footers or irrelevant links
 
-### Technology used
+### Technologies used
 
 *   PHP cURL
 *   Prompt Engineering
@@ -82,7 +82,7 @@ To avoid the impersonal nature of mass applications, I used OpenAI's API selecti
 
 That was the only way to stand out among other applicants who use the semi-cold outreach approach. This strategy demonstrated genuine interest in each employer even if I visited the website automatically in less than a second.
 
-### Technology used
+### Technologies used
 
 *   OpenAI API
 *   PHP
@@ -93,7 +93,7 @@ Aware of the limitations and risks associated with direct links in emails, I opt
 
 The PDF files generated were cached on the server side to be attached to my emails.
 
-### Technology used:
+### Technologies used
 
 *   PHP
 *   DomPDF
@@ -114,6 +114,8 @@ Anyway, I reviewed and, if necessary, customized each message before proceeding.
 
 To further avoid the stigma of automated spam, emails were dispatched at random intervals. This careful timing was designed to mimic human irregularity, reducing the likelihood of triggering spam filters and increasing the chance of email deliverability
 
+### Technologies used
+
 *   Gmail’s SMTP
 *   CronJobs
 *   Water.css
@@ -129,7 +131,7 @@ This ensured each email open was uniquely recorded, triggering a script to log t
 
 While this tactic faced limitations with Gmail, it proved highly effective with other providers, particularly corporate ones.
 
-### Technologies used:
+### Technologies used
 
 *   cURL
 *   Google Spreadsheets API
