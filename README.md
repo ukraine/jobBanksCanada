@@ -137,7 +137,7 @@ While this tactic faced limitations with Gmail, it proved highly effective with 
 *   Google Spreadsheets API
 *   PHP
 
-## Conclusion Insights
+## Conclusion
 
 Sending each resume out of over 400 felt like giving away a great book to someone who's already received 400 others. The rare responses  I got were like small beams of light—rare but motivating. Adding a tracking system helped me see if my book even stood out in the pile.
 
